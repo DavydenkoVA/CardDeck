@@ -2,7 +2,11 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardDeck", "CardDeck\CardDeck.csproj", "{21810E19-FEBC-4C3A-AAA6-C88B90D1E19F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardDeck.Test", "CardDeck.Test\CardDeck.Test.csproj", "{37B70419-A985-45D8-B5DC-67BA7C0F38FE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker.Test", "Poker.Test\Poker.Test.csproj", "{37B70419-A985-45D8-B5DC-67BA7C0F38FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Poker", "Poker\Poker.csproj", "{8177DAA5-48AC-499E-A6BB-39FB9AF50E08}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CardDeck.Core", "CardDeck.Core\CardDeck.Core.csproj", "{66BC21BF-6F5E-43C1-A27E-A9037F5105C5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +22,13 @@ Global
 		{37B70419-A985-45D8-B5DC-67BA7C0F38FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37B70419-A985-45D8-B5DC-67BA7C0F38FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37B70419-A985-45D8-B5DC-67BA7C0F38FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8177DAA5-48AC-499E-A6BB-39FB9AF50E08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8177DAA5-48AC-499E-A6BB-39FB9AF50E08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8177DAA5-48AC-499E-A6BB-39FB9AF50E08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8177DAA5-48AC-499E-A6BB-39FB9AF50E08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66BC21BF-6F5E-43C1-A27E-A9037F5105C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66BC21BF-6F5E-43C1-A27E-A9037F5105C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66BC21BF-6F5E-43C1-A27E-A9037F5105C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66BC21BF-6F5E-43C1-A27E-A9037F5105C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

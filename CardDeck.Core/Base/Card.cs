@@ -1,6 +1,6 @@
-﻿using CardDeck.Enums;
+﻿using CardDeck.Core.Enums;
 
-namespace CardDeck.Implementation;
+namespace CardDeck.Core.Base;
 
 public class Card
 {

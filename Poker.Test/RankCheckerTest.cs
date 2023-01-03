@@ -1,8 +1,10 @@
-using CardDeck.Enums;
-using CardDeck.Implementation;
+using CardDeck.Core.Base;
+using CardDeck.Core.Enums;
 using NUnit.Framework;
+using Poker.Enums;
+using Poker.Implementation;
 
-namespace CardDeck.Test;
+namespace Poker.Test;
 
 public class RankCheckerTest
 {

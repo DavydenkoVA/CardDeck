@@ -1,19 +1,15 @@
-﻿using System.Net.Mime;
-using System.Threading;
-using CardDeck.Implementation;
-using CardDeck.Interfaces;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
+﻿using Microsoft.AspNetCore.Mvc;
+using Poker.Interfaces;
 using ViennaNET.Utils;
 
 namespace CardDeck;
 
 [Route("api/[controller]")]
-public class DeckController : Controller
+public class PokerController : Controller
 {
   private readonly IDeck _deck;
 
-  public DeckController(IDeck deck)
+  public PokerController(IDeck deck)
   {
     _deck = deck.ThrowIfNull(nameof(deck));
   }

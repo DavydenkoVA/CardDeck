@@ -1,10 +1,9 @@
-﻿using System.Text.Json.Serialization;
-using CardDeck.Enums;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using Poker.Enums;
 
-namespace CardDeck.Dtos;
+namespace Poker.Dtos;
 
-public class DealDtp : ActionResult
+public class DealDto : ActionResult
 {
   public string Cards { get; set; }
   public Rank Rank { get; set; }

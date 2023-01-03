@@ -1,8 +1,8 @@
-﻿using CardDeck.Enums;
-using CardDeck.Implementation;
+﻿using CardDeck.Core.Base;
+using CardDeck.Core.Enums;
 using NUnit.Framework;
 
-namespace CardDeck.Test;
+namespace Poker.Test;
 
 public class CardTest
 {

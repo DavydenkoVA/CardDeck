@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace CardDeck.Interfaces;
+namespace Poker.Interfaces;
 
 public interface IDeck
 {

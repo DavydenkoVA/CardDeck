@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace CardDeck.Enums;
+namespace CardDeck.Core.Enums;
 
 public enum Suit
 {

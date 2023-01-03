@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using CardDeck.Enums;
+using CardDeck.Core.Base;
+using CardDeck.Core.Enums;
+using Poker.Enums;
 
-namespace CardDeck.Implementation;
+namespace Poker.Implementation;
 
 public static class RankChecker
 {
