@@ -10,10 +10,4 @@
       <ProjectReference Include="..\CardDeck.Core\CardDeck.Core.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Reference Include="Microsoft.AspNetCore.Mvc.Core, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
-        <HintPath>C:\Users\VikAlex\.dotnet\shared\Microsoft.AspNetCore.App\6.0.7\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
-      </Reference>
-    </ItemGroup>
-
 </Project>

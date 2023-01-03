@@ -1,9 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Poker.Enums;
+﻿using Poker.Enums;
 
 namespace Poker.Dtos;
 
-public class DealDto : ActionResult
+public class DealDto 
 {
   public string Cards { get; set; }
   public Rank Rank { get; set; }

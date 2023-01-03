@@ -21,7 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\CardDeck\CardDeck.csproj" />
+      <ProjectReference Include="..\CardDeck.Core\CardDeck.Core.csproj" />
+      <ProjectReference Include="..\Poker\Poker.csproj" />
     </ItemGroup>
 
 </Project>

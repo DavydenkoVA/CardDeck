@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Hosting;
 using ViennaNET.WebApi;
 using ViennaNET.WebApi.Configurators.Kestrel;
 using ViennaNET.WebApi.Configurators.SimpleInjector;
@@ -6,7 +7,9 @@ using ViennaNET.WebApi.Configurators.Swagger;
 
 namespace CardDeck;
 
-internal class Program
+
+[ExcludeFromCodeCoverage]
+internal static class Program
 {
   private static void Main(string[] args)
   {

@@ -1,26 +1,25 @@
 ﻿using CardDeck.Core.Base;
 using CardDeck.Core.Enums;
-using Microsoft.AspNetCore.Mvc;
 using Poker.Dtos;
 using Poker.Interfaces;
 
 namespace Poker.Implementation
 {
-  public class PokerDeck : Deck, IDeck
+  public class PokerDeck : Deck, IPokerDeck
   {
-    public ActionResult DealCard()
+    public DealDto DealCard()
     {
       while (true)
       {
-        if (_currentCard + 5 < _deck.Length)
+        if (CurrentCard + 5 < CardDeck.Length)
         {
           var deal = new List<Card>
           {
-            _deck[_currentCard++],
-            _deck[_currentCard++],
-            _deck[_currentCard++],
-            _deck[_currentCard++],
-            _deck[_currentCard++]
+            CardDeck[CurrentCard++],
+            CardDeck[CurrentCard++],
+            CardDeck[CurrentCard++],
+            CardDeck[CurrentCard++],
+            CardDeck[CurrentCard++]
           };
           var rank = RankChecker.Check(deal);
 
