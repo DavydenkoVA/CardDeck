@@ -78,13 +78,13 @@ jobs:
 
     # Build the application to populate the obj folder with RuntimeIdentifiers
     - name: Build the application
-      run: dotnet build $env:Solution_Name --output ${{ Output_Path }}
+      run: dotnet build $env:Solution_Name --output $env:Output_Path
       env:
         Configuration: ${{ matrix.configuration }}
         
     # Zip output
     - name: Zip output
-      run: tar.exe -cvf CardDeck.zip ${{ Output_Path }}
+      run: tar.exe -cvf CardDeck.zip $env:Output_Path
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Upload build artifacts
