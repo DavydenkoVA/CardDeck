@@ -58,7 +58,7 @@ jobs:
     env:
       Solution_Name: CardDeck.sln                        # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: CardDeck.Test\CardDeck.Test.csproj                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Output_Path: CardDeck
+      Output_Path: CardDeck\bin\Release\net6.0
     
     steps:
       - name: Checkout
@@ -78,7 +78,7 @@ jobs:
       
       # Build the application to populate the obj folder with RuntimeIdentifiers
       - name: Build the application
-        run: dotnet build $env:Solution_Name --output $env:Output_Path
+        run: dotnet build $env:Solution_Name
         env:
           Configuration: ${{ matrix.configuration }}
       
