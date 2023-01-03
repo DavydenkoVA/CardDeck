@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ViennaNET.WebApi" Version="5.0.0" />
+    <PackageReference Include="ViennaNET.WebApi.Configurators.Kestrel" Version="5.0.0" />
+    <PackageReference Include="ViennaNET.WebApi.Configurators.SimpleInjector" Version="5.0.0" />
+    <PackageReference Include="ViennaNET.WebApi.Configurators.Swagger.UiJwtAuth" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="conf\appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
