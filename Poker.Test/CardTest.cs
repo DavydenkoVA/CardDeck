@@ -16,6 +16,6 @@ public class CardTest
   {
     var card = new Card(Face.King, Suit.Diamonds);
     
-    Assert.That(card.ToString(), Is.EqualTo("К♦"));
+    Assert.That(card.CardName, Is.EqualTo($"{Face.King.GetDisplayName()}{Suit.Diamonds.GetDisplayName()}"));
   }
 }

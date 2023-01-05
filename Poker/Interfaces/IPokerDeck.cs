@@ -1,8 +1,8 @@
-﻿using Poker.Dtos;
+﻿using Poker.Implementation;
 
 namespace Poker.Interfaces;
 
 public interface IPokerDeck
 {
-  DealDto DealCard();
+  Deal DealCard();
 }
