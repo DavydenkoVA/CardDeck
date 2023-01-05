@@ -11,6 +11,6 @@ public static class EnumExtensions
       .GetMember(enumValue.ToString())
       .First()
       .GetCustomAttribute<DisplayAttribute>()
-      ?.GetName();
+      ?.GetName() ?? string.Empty;
   }
 }
