@@ -30,7 +30,7 @@ public class Deal
 
   public override string ToString()
   {
-    return "|" + string.Join('|', _cards) + "|";
+    return "│" + string.Join('│', _cards) + "│";
   }
 
   public void Check()

@@ -24,7 +24,7 @@ public class DealTest
     deal.AddCard(card1);
     deal.AddCard(card2);
 
-    Assert.That(deal.Cards, Is.EqualTo($"|{card1.CardName}|{card2.CardName}|"));
+    Assert.That(deal.Cards, Is.EqualTo($"│{card1.CardName}│{card2.CardName}│"));
   }
 
   [Test]
