@@ -10,7 +10,7 @@ namespace Poker.Implementation
       while (true)
       {
         var deal = new Deal();
-        if (CurrentCard + 5 < CardDeck.Length)
+        if (CurrentCard + 5 <= CardDeck.Length)
         {
           for (var i = 0; i < 5; i++)
           {
