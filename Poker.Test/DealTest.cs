@@ -409,4 +409,26 @@ public class DealTest
       Assert.That(deal.RankCombo, Is.EqualTo(Face.King.GetDisplayName()));
     });
   }
+
+  [Test]
+  public void CheckRankRoyalFlush_WithJoker_Pass()
+  {
+    var deal = new Deal();
+
+    deal.AddCard(new Card(Face.Joker, Suit.Joker));
+    deal.AddCard(new Card(Face.King, Suit.Clubs));
+    deal.AddCard(new Card(Face.Queen, Suit.Clubs));
+    deal.AddCard(new Card(Face.Jack, Suit.Clubs));
+    deal.AddCard(new Card(Face.Ten, Suit.Clubs));
+
+    deal.Check();
+
+    Assert.Multiple(() =>
+    {
+      Assert.That(deal.Rank, Is.EqualTo(Rank.RoyalFlush));
+      Assert.That(deal.RankDescription, Is.EqualTo(Rank.RoyalFlush.GetDisplayName()));
+      Assert.That(deal.RankName, Is.EqualTo(Rank.RoyalFlush.ToString()));
+      Assert.That(deal.RankCombo, Is.EqualTo($"{Face.Ace.GetDisplayName()}{Suit.Clubs.GetDisplayName()}"));
+    });
+  }
 }

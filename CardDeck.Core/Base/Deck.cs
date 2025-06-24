@@ -4,21 +4,22 @@ namespace CardDeck.Core.Base
 {
   public abstract class Deck
   {
-    private const short NumberOfCards = 52;
+    private const short NumberOfCards = 54;
     protected readonly Card[] CardDeck;
     protected int CurrentCard;
     private readonly Random _rnd;
 
     protected Deck()
     {
-
       CardDeck = new Card[NumberOfCards];
       CurrentCard = 0;
       _rnd = new Random();
-      for (var count = 0; count < CardDeck.Length; count++)
+      for (var count = 0; count < 52; count++)
       {
         CardDeck[count] = new Card((Face)(count % 13), (Suit)(count / 13));
       }
+      CardDeck[52] = new Card(Face.Joker, Suit.Joker);
+      CardDeck[53] = new Card(Face.Joker, Suit.Joker);
       Shuffle();
     }
 
