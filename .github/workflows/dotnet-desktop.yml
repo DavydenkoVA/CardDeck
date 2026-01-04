@@ -59,7 +59,7 @@ jobs:
     env:
       Solution_Name: CardDeck.sln                        # Replace with your solution name, i.e. MyWpfApp.sln.
       Test_Project_Path: CardDeck.Test\CardDeck.Test.csproj                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-      Output_Path: CardDeck\bin\Release\net6.0
+      Output_Path: CardDeck\bin\Release\net9.0
     
     steps:
       - name: Checkout
@@ -71,7 +71,7 @@ jobs:
       - name: Install .NET Core
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: 9.0.x
       
       # Execute all unit tests in the solution
       - name: Execute unit tests
