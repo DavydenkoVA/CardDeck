@@ -26,4 +26,6 @@ public enum Rank
   StraightFlush,
   [Display(Name = "Флеш-рояль")]
   RoyalFlush,
+  [Display(Name = "★Покер★")]
+  FiveOfKind,
 }
