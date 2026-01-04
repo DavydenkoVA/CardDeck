@@ -7,20 +7,13 @@ namespace Poker.Implementation;
 
 public class Deal
 {
-  private List<Card> _cards { get; }
+  private List<Card> _cards { get; } = [];
   public string Cards => ToString();
-  public Rank Rank { get; set; }
+  public Rank Rank { get; set; } = Rank.Unknown;
   public string RankName => Rank.ToString();
   public string RankDescription => Rank.GetDisplayName();
-  public string RankCombo { get; private set; }
+  public string RankCombo { get; private set; } = string.Empty;
 
-
-  public Deal()
-  {
-    _cards = new List<Card>();
-    RankCombo = string.Empty;
-    Rank = Rank.Unknown;
-  }
 
   public void AddCard(Card card)
   {
@@ -109,32 +102,18 @@ public class Deal
 
     if (jokerCount == 1)
     {
-      foreach (var face in faces)
-      foreach (var suit in suits)
-      {
-        var cards = baseCards.Append(new Card(face, suit)).ToList();
-        var current = EvaluateHand(cards);
-        bestResult = SelectBetterResult(bestResult, current);
-      }
+      bestResult = (from face in faces from suit in suits select baseCards.Append(new Card(face, suit)).ToList() into cards select EvaluateHand(cards)).Aggregate(bestResult, (current1, current) => SelectBetterResult(current1, current));
     }
     else
     {
-      foreach (var firstFace in faces)
-      foreach (var firstSuit in suits)
-      foreach (var secondFace in faces)
-      foreach (var secondSuit in suits)
-      {
-        var cards = baseCards
-          .Concat(new[]
-          {
-            new Card(firstFace, firstSuit),
-            new Card(secondFace, secondSuit)
-          })
-          .ToList();
-
-        var current = EvaluateHand(cards);
-        bestResult = SelectBetterResult(bestResult, current);
-      }
+      bestResult = (from firstFace in faces
+        from firstSuit in suits
+        from secondFace in faces
+        from secondSuit in suits
+        select baseCards.Concat([new Card(firstFace, firstSuit), new Card(secondFace, secondSuit)])
+          .ToList()
+        into cards
+        select EvaluateHand(cards)).Aggregate(bestResult, (current1, current) => SelectBetterResult(current1, current));
     }
 
     return bestResult ?? EvaluateHand(baseCards);
@@ -266,21 +245,22 @@ public class Deal
   private static bool IsStraight(List<Face> faces, out Face highFace, out List<Face> orderedFaces, out bool isWheel)
   {
     var ordered = faces.OrderBy(face => face).ToArray();
-    isWheel = ordered.SequenceEqual(new[] { Face.Two, Face.Three, Face.Four, Face.Five, Face.Ace });
+    isWheel = ordered.SequenceEqual([Face.Two, Face.Three, Face.Four, Face.Five, Face.Ace]);
 
     if (isWheel)
     {
       highFace = Face.Five;
-      orderedFaces = new List<Face> { Face.Five, Face.Four, Face.Three, Face.Two, Face.Ace };
+      orderedFaces = [Face.Five, Face.Four, Face.Three, Face.Two, Face.Ace];
       return true;
     }
 
+    highFace = Face.Two;
+    
     for (var index = 0; index < ordered.Length - 1; index++)
     {
       if (ordered[index] + 1 != ordered[index + 1])
       {
-        highFace = Face.Unknown;
-        orderedFaces = new List<Face>();
+        orderedFaces = [];
         return false;
       }
     }
@@ -325,19 +305,19 @@ public class Deal
 
   private static Face[][] GetStraightSequences()
   {
-    return new[]
-    {
-      new[] { Face.Ace, Face.Two, Face.Three, Face.Four, Face.Five },
-      new[] { Face.Two, Face.Three, Face.Four, Face.Five, Face.Six },
-      new[] { Face.Three, Face.Four, Face.Five, Face.Six, Face.Seven },
-      new[] { Face.Four, Face.Five, Face.Six, Face.Seven, Face.Eight },
-      new[] { Face.Five, Face.Six, Face.Seven, Face.Eight, Face.Nine },
-      new[] { Face.Six, Face.Seven, Face.Eight, Face.Nine, Face.Ten },
-      new[] { Face.Seven, Face.Eight, Face.Nine, Face.Ten, Face.Jack },
-      new[] { Face.Eight, Face.Nine, Face.Ten, Face.Jack, Face.Queen },
-      new[] { Face.Nine, Face.Ten, Face.Jack, Face.Queen, Face.King },
-      new[] { Face.Ten, Face.Jack, Face.Queen, Face.King, Face.Ace }
-    };
+    return
+    [
+      [Face.Ace, Face.Two, Face.Three, Face.Four, Face.Five],
+      [Face.Two, Face.Three, Face.Four, Face.Five, Face.Six],
+      [Face.Three, Face.Four, Face.Five, Face.Six, Face.Seven],
+      [Face.Four, Face.Five, Face.Six, Face.Seven, Face.Eight],
+      [Face.Five, Face.Six, Face.Seven, Face.Eight, Face.Nine],
+      [Face.Six, Face.Seven, Face.Eight, Face.Nine, Face.Ten],
+      [Face.Seven, Face.Eight, Face.Nine, Face.Ten, Face.Jack],
+      [Face.Eight, Face.Nine, Face.Ten, Face.Jack, Face.Queen],
+      [Face.Nine, Face.Ten, Face.Jack, Face.Queen, Face.King],
+      [Face.Ten, Face.Jack, Face.Queen, Face.King, Face.Ace]
+    ];
   }
 
   private record EvaluationResult(Rank Rank, string Combo, List<Card> Cards, List<int> RankValues, Card HighCard);

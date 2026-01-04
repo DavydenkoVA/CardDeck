@@ -24,7 +24,7 @@ public class DealRankUnknownTests
     {
       Assert.That(deal.Rank, Is.EqualTo(Rank.Unknown));
       Assert.That(deal.RankDescription, Is.EqualTo(Rank.Unknown.GetDisplayName()));
-      Assert.That(deal.RankName, Is.EqualTo(Rank.Unknown.ToString()));
+      Assert.That(deal.RankName, Is.EqualTo(nameof(Rank.Unknown)));
       Assert.That(deal.RankCombo, Is.EqualTo(string.Empty));
     });
   }

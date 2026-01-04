@@ -25,7 +25,7 @@ public class DealRankQuadsTests
     {
       Assert.That(deal.Rank, Is.EqualTo(Rank.Quads));
       Assert.That(deal.RankDescription, Is.EqualTo(Rank.Quads.GetDisplayName()));
-      Assert.That(deal.RankName, Is.EqualTo(Rank.Quads.ToString()));
+      Assert.That(deal.RankName, Is.EqualTo(nameof(Rank.Quads)));
       Assert.That(deal.RankCombo, Is.EqualTo(Face.Queen.GetDisplayName()));
     });
   }
@@ -42,8 +42,29 @@ public class DealRankQuadsTests
     deal.AddCard(new Card(Face.Jocker, Suit.Jocker));
     
     deal.Check();
+    Assert.Multiple(() => 
+    {
+      Assert.That(deal.Rank, Is.EqualTo(Rank.Quads));
+      Assert.That(deal.RankCombo, Is.EqualTo(Face.Queen.GetDisplayName())); 
+    });
+  }
+  
+  [Test]
+  public void CheckRankQuads_WithTwoJoker()
+  {
+    var deal = new Deal();
     
-    Assert.That(deal.Rank, Is.EqualTo(Rank.Quads));
-    Assert.That(deal.RankCombo, Is.EqualTo(Face.Queen.GetDisplayName()));
+    deal.AddCard(new Card(Face.Queen, Suit.Hearts));
+    deal.AddCard(new Card(Face.Queen, Suit.Diamonds));
+    deal.AddCard(new Card(Face.Jocker, Suit.Jocker));
+    deal.AddCard(new Card(Face.Ten, Suit.Clubs));
+    deal.AddCard(new Card(Face.Jocker, Suit.Jocker));
+    
+    deal.Check();
+    Assert.Multiple(() => 
+    {
+      Assert.That(deal.Rank, Is.EqualTo(Rank.Quads));
+      Assert.That(deal.RankCombo, Is.EqualTo(Face.Queen.GetDisplayName())); 
+    });
   }
 }

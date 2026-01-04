@@ -25,7 +25,7 @@ public class DealRankHighCardTests
     {
       Assert.That(deal.Rank, Is.EqualTo(Rank.HighCard));
       Assert.That(deal.RankDescription, Is.EqualTo(Rank.HighCard.GetDisplayName()));
-      Assert.That(deal.RankName, Is.EqualTo(Rank.HighCard.ToString()));
+      Assert.That(deal.RankName, Is.EqualTo(nameof(Rank.HighCard)));
       Assert.That(deal.RankCombo, Is.EqualTo(Face.King.GetDisplayName()));
     });
   }

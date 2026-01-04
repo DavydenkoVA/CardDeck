@@ -12,6 +12,6 @@ public enum Suit
   Diamonds,
   [Display(Name = "♠")]
   Spades,
-  [Display(Name = "🎭")]
+  [Display(Name = "")]
   Jocker,
 }

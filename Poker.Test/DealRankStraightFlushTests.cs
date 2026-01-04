@@ -25,7 +25,7 @@ public class DealRankStraightFlushTests
     {
       Assert.That(deal.Rank, Is.EqualTo(Rank.StraightFlush));
       Assert.That(deal.RankDescription, Is.EqualTo(Rank.StraightFlush.GetDisplayName()));
-      Assert.That(deal.RankName, Is.EqualTo(Rank.StraightFlush.ToString()));
+      Assert.That(deal.RankName, Is.EqualTo(nameof(Rank.StraightFlush)));
       Assert.That(deal.RankCombo, Is.EqualTo($"{Face.King.GetDisplayName()}{Suit.Clubs.GetDisplayName()}"));
     });
   }
@@ -42,8 +42,29 @@ public class DealRankStraightFlushTests
     deal.AddCard(new Card(Face.Jack, Suit.Hearts));
     
     deal.Check();
+    Assert.Multiple(() =>
+    {
+      Assert.That(deal.Rank, Is.EqualTo(Rank.StraightFlush));
+      Assert.That(deal.RankCombo, Is.EqualTo($"{Face.Queen.GetDisplayName()}{Suit.Hearts.GetDisplayName()}"));
+    });
+  }
+  
+  [Test]
+  public void CheckRankStraightFlush_WithTwoJoker()
+  {
+    var deal = new Deal();
     
-    Assert.That(deal.Rank, Is.EqualTo(Rank.StraightFlush));
-    Assert.That(deal.RankCombo, Is.EqualTo($"{Face.Queen.GetDisplayName()}{Suit.Hearts.GetDisplayName()}"));
+    deal.AddCard(new Card(Face.Eight, Suit.Hearts));
+    deal.AddCard(new Card(Face.Jocker, Suit.Jocker));
+    deal.AddCard(new Card(Face.Jocker, Suit.Jocker));
+    deal.AddCard(new Card(Face.Queen, Suit.Hearts));
+    deal.AddCard(new Card(Face.Jack, Suit.Hearts));
+    
+    deal.Check();
+    Assert.Multiple(() =>
+    {
+      Assert.That(deal.Rank, Is.EqualTo(Rank.StraightFlush));
+      Assert.That(deal.RankCombo, Is.EqualTo($"{Face.Queen.GetDisplayName()}{Suit.Hearts.GetDisplayName()}"));
+    });
   }
 }

@@ -9,7 +9,7 @@ public class DealCardsTests
   [Test]
   public void Cards_ReturnsFormattedString()
   {
-    var deal = new Poker.Implementation.Deal();
+    var deal = new Implementation.Deal();
 
     var card1 = new Card(Face.Ace, Suit.Clubs);
     var card2 = new Card(Face.Ten, Suit.Diamonds);

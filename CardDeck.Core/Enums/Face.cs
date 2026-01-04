@@ -30,6 +30,6 @@ public enum Face
   King,
   [Display(Name = "Т")]
   Ace,
-  [Display(Name = "")]
+  [Display(Name = "🎭")]
   Jocker,
 }
