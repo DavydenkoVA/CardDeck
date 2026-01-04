@@ -166,3 +166,4 @@ _NCrunch*
 
 /.idea/
 run.ps1
+Poker.Test/DealCountTests.cs
