@@ -13,7 +13,6 @@ namespace CardDeck.Core.Base
     protected Deck()
     {
       CardDeck = new Card[NumberOfCards + NumberOfJocker];
-      CurrentCard = 0;
       _rnd = new Random();
       for (var count = 0; count < NumberOfCards; count++)
       {
@@ -22,7 +21,7 @@ namespace CardDeck.Core.Base
 
       for (var count = 0; count < NumberOfJocker; count++)
       {
-        CardDeck[NumberOfCards - 1 + count] = new Card(Face.Jocker, Suit.Jocker);
+        CardDeck[NumberOfCards + count] = new Card(Face.Jocker, Suit.Jocker);
       }
       
       Shuffle();
