@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using ViennaNET.WebApi;
 using ViennaNET.WebApi.Configurators.Kestrel;
 using ViennaNET.WebApi.Configurators.SimpleInjector;
@@ -13,7 +14,7 @@ internal static class Program
 {
   private static void Main(string[] args)
   {
-    ViennaHostBuilder.Create()
+    CompanyHostBuilder.Create()
       .UseKestrel()
       .UseSwagger()
       .UseSimpleInjector()
